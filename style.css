@@ -1,0 +1,217 @@
+:root {
+  --cor-primaria: #4f46e5;
+  --cor-secundaria: #4338ca;
+  --cor-fundo: #f3f4f6;
+  --cor-cartao: #ffffff;
+  --cor-texto: #1f2937;
+  --cor-borda: #d1d5db;
+  --cor-desativado: #9ca3af;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+}
+
+/* =========================================
+   ESTILOS GERAIS (Foco em Mobile Primeiro)
+   ========================================= */
+header {
+  width: 100%;
+  background-color: var(--cor-primaria);
+  color: #ffffff;
+  text-align: center;
+  padding: 1.2rem 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h2 {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+main {
+  background-color: var(--cor-cartao);
+  width: 95%; /* Ocupa quase toda a tela no celular */
+  margin: 1.5rem auto;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+main div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1#materia {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: var(--cor-primaria);
+  text-align: center;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="number"]:focus {
+  border-color: var(--cor-primaria);
+}
+
+button {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--cor-primaria);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
+  margin-bottom: 0.75rem;
+}
+
+button:hover:not(:disabled) {
+  background-color: var(--cor-secundaria);
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+button:disabled {
+  background-color: var(--cor-desativado);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+#finalizar {
+  background-color: #10b981;
+}
+
+#finalizar:hover:not(:disabled) {
+  background-color: #059669;
+}
+
+/* Estilos da Tabela Gerada Dinamicamente */
+#tabela {
+  width: 100%;
+  margin-top: 1.5rem;
+  overflow-x: auto; /* Permite rolar a tabela no celular se ficar muito larga */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+  font-size: 0.9rem; /* Fonte um pouco menor no celular */
+}
+
+thead tr {
+  background-color: var(--cor-primaria);
+  color: #ffffff;
+}
+
+th,
+td {
+  padding: 0.75rem 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+footer {
+  width: 100%;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--cor-desativado);
+  margin-top: auto;
+}
+
+/* =========================================
+   ADAPTAÇÕES PARA TABLETS E COMPUTADORES
+   ========================================= */
+@media (min-width: 768px) {
+  header {
+    font-size: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  main {
+    width: 80%;
+    max-width: 600px; /* Limita o tamanho máximo no PC para não ficar esticado */
+    padding: 2.5rem;
+    margin: 3rem auto;
+  }
+
+  h1#materia {
+    font-size: 1.8rem;
+  }
+
+  /* Coloca os inputs lado a lado no computador */
+  main div form,
+  main div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  h1#materia {
+    width: 100%;
+  }
+
+  input[type="number"] {
+    width: 48%; /* Cada input ocupa metade da tela no PC */
+  }
+
+  button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+
+  table {
+    font-size: 1rem; /* Fonte maior na tabela para PC */
+  }
+
+  th,
+  td {
+    padding: 1rem;
+  }
+}
